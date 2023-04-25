@@ -7,11 +7,12 @@ export const labels = { app: appName }
 export const deployment = new k8s.apps.v1.Deployment(
   'nginx',
   {
+    metadata: { labels, namespace },
     spec: {
       replicas: 1,
       selector: { matchLabels: labels },
       template: {
-        metadata: { labels, namespace },
+        metadata: { labels },
         spec: { containers: [{ image: 'nginx', name: 'nginx' }] },
       },
     },
