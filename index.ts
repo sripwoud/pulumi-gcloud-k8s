@@ -1,5 +1,5 @@
+// FIXME: is there another way than exporting all resources to make sure they are created when they are defined in separated files?
 import './resources'
-import * as pulumi from '@pulumi/pulumi'
 import {
   deployment,
   frontend,
@@ -8,30 +8,7 @@ import {
   isMinikube,
 } from './resources'
 
-export const kubeconfig = pulumi.interpolate`apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority-data: ${gkeCluster.masterAuth.clusterCaCertificate}
-    server: https://${gkeCluster.endpoint}
-  name: ${gkeCluster.name}
-contexts:
-- context:
-    cluster: ${gkeCluster.name}
-    user: ${gkeCluster.name}
-  name: ${gkeCluster.name}
-current-context: ${gkeCluster.name}
-kind: Config
-preferences: {}
-users:
-- name: ${gkeCluster.name}
-  user:
-    exec:
-      apiVersion: client.authentication.k8s.io/v1beta1
-      command: gke-gcloud-auth-plugin
-      installHint: Install gke-gcloud-auth-plugin for use with kubectl by following
-        https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke
-      provideClusterInfo: true
-`
+export { kubeconfig } from './resources'
 export const networkName = gkeNetwork.name
 export const networkId = gkeNetwork.id
 export const clusterName = gkeCluster.name

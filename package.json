@@ -4,16 +4,18 @@
     "@3pwd/eslint-config": "^1.0.1",
     "@3pwd/prettier-config": "^1.0.1",
     "@types/node": "^16",
-    "barrelsby": "^2.5.1"
+    "barrelsby": "^2.5.1",
+    "concurrently": "^8.0.1",
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "@pulumi/gcp": "6.39.0",
     "@pulumi/kubernetes": "^3.25.0",
-    "@pulumi/pulumi": "^3.0.0",
-    "typescript": "^4.0.0"
+    "@pulumi/pulumi": "^3.0.0"
   },
   "scripts": {
     "barrels": "barrelsby --config .barrelsby.json",
-    "fix": "prettier -w . --loglevel error &&  eslint . --ext .ts --fix"
+    "fix": "concurrently 'prettier -w . --loglevel error' 'eslint . --ext .ts --fix'",
+    "validate": "concurrently 'tsc' 'prettier --check .' 'eslint . --ext .ts'"
   }
 }
