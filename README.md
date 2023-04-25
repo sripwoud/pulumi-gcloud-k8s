@@ -46,3 +46,9 @@ Ex:
 ```
 export KUBECONFIG=$KUBECONFIG:.kubeconfig
 ```
+
+## Access/Test the app
+
+```shell
+curl $(pulumi stack output ip)
+```
