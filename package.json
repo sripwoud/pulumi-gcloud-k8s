@@ -15,6 +15,7 @@
   },
   "scripts": {
     "barrels": "barrelsby --config .barrelsby.json",
-    "fix": "prettier -w . --loglevel error &&  eslint . --ext .ts --fix"
+    "fix": "concurrently 'prettier -w . --loglevel error' 'eslint . --ext .ts --fix'",
+    "validate": "concurrently 'tsc' 'prettier --check .' 'eslint . --ext .ts'",
   }
 }
