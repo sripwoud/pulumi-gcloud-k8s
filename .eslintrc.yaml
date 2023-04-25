@@ -1,0 +1,9 @@
+extends: ['@3pwd']
+overrides:
+  - files: ['resources/**/*.ts']
+    rules:
+      '@typescript-eslint/no-unused-vars': off
+
+  - files: ['index.ts']
+    rules:
+      import/no-duplicates: off

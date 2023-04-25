@@ -1,0 +1,11 @@
+node_modules
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# build dirs
+build
+dist
+
+# JetBrains IDE
+.idea
