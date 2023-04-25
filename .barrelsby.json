@@ -1,6 +1,7 @@
 {
-  "directory": ["resources"],
+  "directory": "resources",
   "delete": true,
+  "location": "all",
   "noSemicolon": true,
   "singleQuotes": true
 }
