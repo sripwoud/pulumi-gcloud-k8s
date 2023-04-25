@@ -1,6 +1,11 @@
-# Pulumi Gcloud K8s
+# Pulumi gcloud k8s
 
 Create a kubernetes cluster on gcloud then deploy an app on that cluster using [pulumi](https://www.pulumi.com/).
+
+Based on following docs:
+- [pulumi GKE template](https://www.pulumi.com/templates/kubernetes/gcp/)
+- [pulumi kubernetes get started](https://www.pulumi.com/docs/get-started/kubernetes/)
+- [access a kubernetes cluster using a pulumi provider](https://www.pulumi.com/registry/packages/kubernetes/how-to-guides/gke/#access-the-kubernetes-cluster-using-pulumi-providers)
 
 ## Setup
 
@@ -32,7 +37,7 @@ pulumi up
 
 ## Kubeconfig
 
-A [pulumi provider](https://www.pulumi.com/registry/packages/kubernetes/how-to-guides/gke/#access-the-kubernetes-cluster-using-pulumi-providers) is created for our newly created k8s cluster by passing the kubeconfig to it.  
+A pulumi provider is created for our newly created k8s cluster by passing the kubeconfig to it.  
 So theoretically, no need to export kubeconfig locally unless you want to use kubectl directly. In this case you can export kubeconfig locally:
 To export kubeconfig nonetheless, run:
 
